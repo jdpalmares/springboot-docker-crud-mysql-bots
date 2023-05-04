@@ -11,6 +11,9 @@ import jakarta.persistence.Table;
 @Table(name = "bots")
 public class Bot {
 
+    public Bot() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

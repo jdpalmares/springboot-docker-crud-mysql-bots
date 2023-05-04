@@ -1,7 +1,6 @@
 package com.jdpalmares.simplebotcrud.demo.model;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +13,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "attack_bots")
 public class AttackBots {
+
+    public AttackBots() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

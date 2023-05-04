@@ -24,6 +24,9 @@ public class Attacks {
     @Column(name = "attack_date")
     private Date attackDate;
 
+    public Attacks() {
+    }
+
     public Long getId() {
         return id;
     }

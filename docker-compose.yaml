@@ -2,7 +2,7 @@ services:
 
   java_app:
     container_name: java_app
-    image: jdpalmares/java_app:1.0.0
+    image: app:1.0.0
     build: .
     ports:
       - 8080:8080
@@ -16,12 +16,9 @@ services:
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQLDialect",
         "spring.jpa.hibernate.ddl-auto" : "update",
         "spring.datasource.driver-class-name=com.mysql.jdbc.Driver" : "com.mysql.jdbc.Driver" }'
-    volumes:
-      - .m2:/root/.m2
-    stdin_open: true
-    tty: true
     
   mysqldb:
+    container_name: mysqldb
     image: mysql:5.7
     restart: unless-stopped
     environment:
@@ -32,3 +29,6 @@ services:
     volumes:
       - ./mysql_data:/var/lib/mysql
       - ./database:/docker-entrypoint-initdb.d
+
+volumes:
+  db:
