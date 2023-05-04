@@ -45,6 +45,11 @@ public class AttacksController {
         return attacksService.getAttackById(id);
     }
 
+    @GetMapping("/listbots")
+    public List<String> getAttackByIdAndListBotNames(@RequestParam("id") Long id) {
+        return attacksService.getAttackByIdAndListBotNames(id);
+    }
+
     @PostMapping
     public Attacks createAttack(@RequestBody Attacks attack) {
         return attacksService.createAttack(attack);

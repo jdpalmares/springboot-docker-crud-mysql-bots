@@ -15,4 +15,11 @@ public interface AttackRepository extends JpaRepository<Attacks, Long> {
 
     @Query(value = "SELECT * from attacks t where attack_date BETWEEN :startDate AND :endDate", nativeQuery = true)
     public List<Attacks> getAttacksByDateRange(@Param("startDate") Date fromDate, @Param("endDate") Date endDate);
+
+    @Query("SELECT bs.name FROM AttackBots AS abs " +
+            "INNER JOIN Attacks AS ats ON abs.attacks.id = ats.id " +
+            "INNER JOIN Bot AS bs ON abs.bot.id = bs.id " +
+            "WHERE abs.attacks.id = :id " +
+            "ORDER BY bs.name ASC")
+    public List<String> getAttackByIdAndListBotNames(@Param("id") Long id);
 }

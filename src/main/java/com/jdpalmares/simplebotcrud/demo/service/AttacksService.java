@@ -30,6 +30,10 @@ public class AttacksService {
         return attackRepository.findById(id).get();
     }
 
+    public List<String> getAttackByIdAndListBotNames(Long id) {
+        return attackRepository.getAttackByIdAndListBotNames(id);
+    }
+
     @Transactional
     public Attacks createAttack(Attacks attack) {
         return attackRepository.save(attack);
